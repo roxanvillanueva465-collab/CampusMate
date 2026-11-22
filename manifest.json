@@ -1,17 +1,16 @@
 {
-      "name": "CampusApp",
-        "short_name": "CampusApp",
-          "description": "Your campus, all in one place.",
-            "start_url": ".",
-              "display": "standalone",
-                "background_color": "#2563eb",
-                  "theme_color": "#2563eb",
-                    "icons": [
-                        {
-                              "src": "icon.svg",
-                                    "sizes": "any",
-                                          "type": "image/svg+xml",
-                                                "purpose": "any"
-                                                    }
-                                                      ]
-                                                      }
+    "name": "Campus Buddy",
+      "short_name": "Campus Buddy",
+        "start_url": ".",
+          "display": "standalone",
+            "background_color": "#FFC93C",
+              "theme_color": "#FFC93C",
+                "icons": [
+                    {
+                          "src": "icon.svg",
+                                "sizes": "any",
+                                      "type": "image/svg+xml",
+                                            "purpose": "any maskable"
+                                                }
+                                                  ]
+                                                  }

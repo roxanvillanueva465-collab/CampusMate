@@ -3,112 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CampusApp - Personalized Campus App</title>
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg">
-<meta name="theme-color" content="#1e3a5f">
+<title>Campus Buddy - Roxan Villanueva</title>
 <style>
-:root{--size:16px}
-*{box-sizing:border-box}
-body{font-family:Arial,sans-serif;margin:0;background:#eef2f7;color:#0f172a;font-size:var(--size)}
-header{background:#1e3a5f;color:white;padding:24px 18px;text-align:center;border-radius:0 0 20px 20px}
-header p{color:#cbd5e1;margin:6px 0 0}
-.wrap{padding:16px;max-width:650px;margin:auto}
-.card{background:white;padding:18px;border-radius:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.card h2{margin:0 0 6px;font-size:1.2em}
-.badge{display:inline-block;background:#dbeafe;color:#1e40af;padding:4px 10px;border-radius:20px;font-size:13px;font-weight:bold}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-button{border:0;border-radius:12px;padding:14px;font-size:16px;cursor:pointer;width:100%}
-.btn-blue{background:#2563eb;color:white}
-.btn-purple{background:#7c3aed;color:white}
-.btn-green{background:#059669;color:white}
-.btn-orange{background:#ea580c;color:white}
-.btn-dark{background:#1e3a5f;color:white}
-.btn-light{background:#e2e8f0;color:#0f172a}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:12px 0}
-select,input[type=range]{width:100%;padding:10px;border-radius:10px;border:1px solid #cbd5e1;font-size:16px}
-.switch{font-size:28px;cursor:pointer}
-.schedule{border-left:5px solid #2563eb;padding:10px 12px;background:#f8fafc;border-radius:10px;margin:10px 0}
-.small{color:#64748b;font-size:0.9em}
-.hidden{display:none}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:white;color:#111;padding:16px;padding-bottom:90px}
+.header{background:#d99bf0;border-radius:22px;padding:28px 16px;text-align:center}
+.header h1{font-size:36px;letter-spacing:-1px}
+.header p{font-size:19px;margin-top:12px}
+.hello{font-size:20px;margin:16px 8px 12px}
+.hello b{font-size:22px}
+.badge{display:inline-block;background:#1e3a5f;color:white;padding:6px 14px;border-radius:20px;font-size:13px;margin-top:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{border-radius:22px;padding:22px 10px 18px;text-align:center;cursor:pointer}
+.tile span{font-size:68px;display:block}
+.tile p{font-size:18px;margin-top:12px}
+.orange{background:#fbbf4a}.blue{background:#3bb5f5}.red{background:#ff5a5a}.gray{background:#7a7a7a}
+.card{background:#f8fafc;border-radius:16px;padding:16px;margin-top:16px;display:none}
+.card.show{display:block}
+.card h2{font-size:20px;margin-bottom:8px}
+.subject{border-left:5px solid #2563eb;background:white;border-radius:12px;padding:12px;margin:10px 0}
+.subject.green{border-color:#16a34a}
+button{width:100%;padding:12px;border:none;border-radius:10px;background:#e2e8f0;font-weight:bold;font-size:15px;margin-top:10px}
+button.dark{background:#1e3a5f;color:white}
+.small{color:#475569;font-size:14px;line-height:1.5;margin-top:8px}
+.bottom{position:fixed;left:0;right:0;bottom:0;background:#e5e5e5;display:flex;justify-content:space-around;padding:14px 6px;font-size:17px}
+.bottom div{cursor:pointer}
+.steps{background:white;border:1px solid #eee;border-radius:16px;padding:16px;margin-top:16px}
+.steps p{margin:6px 0;font-size:15px}
 </style>
 </head>
 <body>
-<header>
-<h1 id="title">🎓 CampusApp</h1>
-<p id="subtitle">Your campus, all in one place.</p>
-<p><span class="badge" id="greeting">Good evening, Student!</span></p>
-</header>
 
-<div class="wrap">
-
-<!-- 1. IDENTIFY A NEED -->
-<div class="card">
-<h2>1. Identify a Need ✅</h2>
-<p><b>Problem:</b> <span id="needText">Students need quick access to schedules and room updates.</span></p>
-<div class="schedule"><b>📚 8:00 AM - Math 101</b><br><span class="small">Room: <b id="room1">Room 201</b> • Prof. Santos</span><br><button class="btn-light" style="margin-top:8px;padding:8px" onclick="checkRoom()">🔄 Check Room Update</button><p id="roomMsg" class="small"></p></div>
-<div class="schedule" style="border-color:#059669"><b>💻 10:00 AM - IT Capstone</b><br><span class="small">Room: Room 305 • Lab 2</span></div>
-<p class="small">How this helps: 1 tap lang, makikita mo na agad schedule at kung nagbago yung room — hindi ka na maliligaw.</p>
+<div class="header">
+<h1>CAMPUS BUDDY</h1>
+<p>Your campus, made easier!</p>
+<div class="badge">GOOD DAY, STUDENT!</div>
 </div>
 
-<!-- 2. CHOOSE INTERACTION -->
-<div class="card">
-<h2>2. Choose Interaction ✅</h2>
-<p>Select <b>touch, voice, or accessible controls.</b></p>
+<div class="hello">Hello, Roxan Villanueva!👋<br><span style="font-size:15px;color:#555">Welcome back to Campus Buddy</span></div>
+
 <div class="grid">
-<button class="btn-blue" onclick="speak('Welcome to Campus App')">🔊 Hear This Page</button>
-<button class="btn-purple" onclick="startVoice()">🎤 Voice Search</button>
-<button class="btn-green" onclick="toggleHighContrast()">♿ High Contrast</button>
-<button class="btn-orange" onclick="alert('Large buttons ON - madali nang pindutin!')">👆 Large Buttons</button>
-</div>
-<p id="voiceResult" class="small" style="margin-top:10px">🎤 Tap Voice Search, sabihin mo: "Where is my Math class?"</p>
+<div class="tile orange" onclick="show('schedule')"><span>🗓️</span><p>Class Schedule</p></div>
+<div class="tile blue" onclick="show('room')"><span>🔄</span><p>Room Updates</p></div>
+<div class="tile red" onclick="show('announce')"><span>📢</span><p>Announcement</p></div>
+<div class="tile gray" onclick="show('settings')"><span>⚙️</span><p>Personal Settings</p></div>
 </div>
 
-<!-- 3. ADD PERSONALIZATION -->
-<div class="card">
-<h2>3. Add Personalization ✅</h2>
-<div class="row"><label><b>🌐 Language / Wika</b></label></div>
-<select id="lang" onchange="changeLang()">
-<option value="en">English</option>
-<option value="tl">Tagalog</option>
-</select>
-<div class="row"><label><b>🔠 Text Size</b></label><span id="sizeLabel">16px</span></div>
-<input type="range" min="14" max="22" value="16" oninput="changeSize(this.value)">
-<div class="row"><label><b>🔔 Notifications</b></label><span class="switch" id="notifSwitch" onclick="toggleNotif()">🔔</span></div>
-<p id="notifStatus" class="small">Notifications: ON - Paalala ka namin bago mag-klase.</p>
-<p class="small">Your settings are saved on this device only.</p>
+<div id="schedule" class="card show">
+<h2>📚 Class Schedule</h2>
+<div class="subject"><b>8:30 AM - 10:00 AM - GE 2</b><p>Room: Room 3 Blue Building • Prof. Donald</p></div>
+<div class="subject green"><b>10:30 AM - 11:30 AM - HCI</b><p>Room: Room 2 Comlab • Prof. Raise Thorm</p></div>
 </div>
 
-<!-- 4. PROTECT THE USER -->
-<div class="card">
-<h2>4. Protect the User ✅</h2>
-<p><b>How we use your data:</b></p>
-<p class="small">• Schedule mo lang ang ginagamit namin para ipakita yung klase mo.<br>• Hindi namin binebenta ang data mo.<br>• Ikaw ang may control — pwede mong i-OFF lahat anumang oras.</p>
-<div class="row"><span>📍 Share my location for shuttle</span><span class="switch" onclick="toggleMe(this)">❌</span></div>
-<div class="row"><span>📊 Allow anonymous usage stats</span><span class="switch" onclick="toggleMe(this)">❌</span></div>
-<div class="row"><span>💾 Save my preferences</span><span class="switch" onclick="toggleMe(this)">✅</span></div>
-<button class="btn-dark" onclick="alert('All data cleared! Naka-OFF na lahat. Safe ka na.')">🗑️ Clear My Data</button>
+<div id="room" class="card">
+<h2>🔄 Room Updates</h2>
+<p>GE 2 - Room 3 Blue Building</p>
+<button onclick="alert('GE 2: Room 3 Blue Building - No change. Good to go, Roxan! ✅')">Check GE 2 Room</button>
+<p style="margin-top:10px">HCI - Room 2 Comlab</p>
+<button onclick="alert('HCI: Room 2 Comlab - No change. See you in Comlab! ✅')">Check HCI Room</button>
 </div>
 
-<div class="card" style="text-align:center">
-<h2>EXAMPLE: How it helps a student</h2>
-<p class="small">Si Juan, may klase ng 8AM. Nagbago yung room from 201 to 105. Dahil naka-ON notifications niya at Tagalog ang language niya, nakatanggap siya ng: <b>"Juan, lumipat ang Math mo sa Room 105!"</b> — nakarating siya on time.</p>
-<button class="btn-blue" onclick="demoTask()">▶️ Try Demo: Complete My Task</button>
-<p id="demoMsg"></p>
+<div id="announce" class="card">
+<h2>📢 Announcement</h2>
+<p class="small">• HCI Class - Room 2 Comlab, 10:30 AM. Bring your notes!<br>• GE 2 Class - Room 3 Blue Building, 8:30 AM. Don't be late!<br>• GOOD DAY, STUDENT! Have a great day, Roxan!</p>
 </div>
 
+<div id="settings" class="card">
+<h2>⚙️ Personal Settings</h2>
+<p><b>Name:</b> Roxan Villanueva<br><b>Course:</b> Student<br><b>Subjects:</b> GE 2 & HCI</p>
+<button class="dark" onclick="alert('Profile saved, Roxan! 💙')">Save Profile</button>
 </div>
+
+<div class="steps">
+<h2>For School - 4 Steps ✅</h2>
+<p><b>1. Identify a Need:</b> Students need quick schedule & room updates.</p>
+<p><b>2. Choose Interaction:</b> Touch / Tap - simple for mobile.</p>
+<p><b>3. Design & Prototype:</b> Campus Buddy - 4 colorful tiles, easy to tap.</p>
+<p><b>4. Test & Improve:</b> Tested by Roxan - working buttons & schedule.</p>
+<div style="margin-top:10px"><b>📝 My Tasks</b><br>
+<input id="taskInput" placeholder="Add a new task..." style="width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin:8px 0">
+<button class="dark" onclick="addTask()">+ Add Task</button>
+<ul id="taskList" style="list-style:none;margin-top:10px"></ul></div>
+</div>
+
+<div class="bottom">
+<div onclick="show('schedule')">🏠 Home</div>
+<div onclick="show('schedule')">🗓️ Schedule</div>
+<div onclick="show('announce')">🚨 Alert</div>
+<div onclick="show('settings')">👤 Profile</div>
+</div>
+
 <script>
-function checkRoom(){document.getElementById('roomMsg').innerHTML='⚠️ <b>UPDATE:</b> Lumipat ang Math 101 sa <b>Room 105</b> (dating Room 201).';document.getElementById('room1').innerText='Room 105 - UPDATED';}
-function speak(t){speechSynthesis.speak(new SpeechSynthesisUtterance(t));}
-function startVoice(){let r=document.getElementById('voiceResult');if(!('webkitSpeechRecognition' in window)){r.innerText='Voice not supported dito sa browser, pero sa phone usually gumagana.';return;}let rec=new webkitSpeechRecognition();rec.lang='en-US';rec.onresult=e=>{r.innerText='You said: '+e.results[0][0].transcript+' → Math mo ay sa Room 105!';};rec.start();r.innerText='🎤 Listening... magsalita ka na...';}
-function toggleHighContrast(){document.body.style.background=document.body.style.background==='black'?'#eef2f7':'black';document.body.style.color=document.body.style.color==='white'?'#0f172a':'white';}
-function changeLang(){let v=document.getElementById('lang').value;if(v==='tl'){document.getElementById('title').innerText='🎓 CampusApp';document.getElementById('subtitle').innerText='Ang campus mo, lahat sa isang lugar.';document.getElementById('needText').innerText='Kailangan ng mga estudyante ng mabilis na schedule at room updates.';document.getElementById('greeting').innerText='Magandang gabi, Estudyante!';}else{location.reload();}}
-function changeSize(v){document.documentElement.style.setProperty('--size',v+'px');document.getElementById('sizeLabel').innerText=v+'px';}
-function toggleNotif(){let s=document.getElementById('notifSwitch');let on=s.innerText==='🔔';s.innerText=on?'🔕':'🔔';document.getElementById('notifStatus').innerText=on?'Notifications: OFF - Hindi ka na namin aabalahin.':'Notifications: ON - Paalala ka namin bago mag-klase.';}
-function toggleMe(el){el.innerText=el.innerText==='✅'?'❌':'✅';}
-function demoTask(){document.getElementById('demoMsg').innerHTML='✅ <b>Task Done!</b><br>1. Nakita mo schedule mo<br>2. Na-check mo room update (Room 105)<br>3. Na-personalize mo yung app mo<br>4. Na-control mo yung privacy mo';}
-let h=new Date().getHours();document.getElementById('greeting').innerText=h<12?'Good morning, Student!':h<18?'Good afternoon, Student!':'Good evening, Student!';
+function show(id){
+document.querySelectorAll('.card').forEach(c=>c.classList.remove('show'));
+document.getElementById(id).classList.add('show');
+window.scrollTo({top:350,behavior:'smooth'});
+}
+function addTask(){
+let v=document.getElementById('taskInput').value;
+if(!v) return;
+let li=document.createElement('li');
+li.textContent='✅ '+v;
+li.style.cssText='padding:10px;background:#f8fafc;border-radius:8px;margin:6px 0';
+li.onclick=()=>li.remove();
+document.getElementById('taskList').appendChild(li);
+document.getElementById('taskInput').value='';
+}
 </script>
 </body>
 </html>
