@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CampusApp</title>
+<style>
+body { font-family: Arial; background: #f0f4ff; margin: 0; text-align: center; }
+header { background: #2563eb; color: white; padding: 30px 15px; }
+h1 { margin: 0; font-size: 28px; }
+p { color: #555; }
+button { background: #2563eb; color: white; border: none; padding: 12px 20px; margin: 5px; border-radius: 10px; font-size: 16px; }
+button:active { background: #1e40af; }
+.box { background: white; margin: 15px; padding: 15px; border-radius: 15px; text-align: left; display: none; }
+.box h2 { margin-top: 0; color: #2563eb; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Welcome to CampusApp!</h1>
+<p style="color:white;">Your campus, all in one place.</p>
+</header>
+
+<p>Anong gusto mong makita?</p>
+<button onclick="showAnn()">View Announcements</button>
+<button onclick="showSched()">View Schedule</button>
+
+<div id="ann" class="box">
+<h2>📢 Announcements</h2>
+<p>• No classes on Monday - Holiday!</p>
+<p>• Intramurals next week, mag-ready na!</p>
+<p>• Enrollment for next sem is open.</p>
+</div>
+
+<div id="sched" class="box">
+<h2>📅 My Schedule</h2>
+<p>• Mon - Math 8:00 AM</p>
+<p>• Tue - English 10:00 AM</p>
+<p>• Wed - Science 9:00 AM</p>
+</div>
+
+<script>
+function showAnn() {
+      document.getElementById('ann').style.display = 'block';
+        document.getElementById('sched').style.display = 'none';
+}
+function showSched() {
+      document.getElementById('sched').style.display = 'block';
+        document.getElementById('ann').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
+}
